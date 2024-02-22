@@ -10,7 +10,22 @@
 }
 @font-face {
   font-family: 'Inter';
-  src: url("/public/fonts/Inter-SemiBold.ttf") format('trueType');
+  src: url("/fonts/Inter-SemiBold.ttf") format('trueType');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("/fonts/Comfortaa-Thin.ttf") format('trueType');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("/fonts/Comfortaa-Regular.ttf") format('trueType');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url("/fonts/Comfortaa-Bold.ttf") format('trueType');
   font-weight: 600;
 }
 
@@ -24,19 +39,145 @@ body {
   place-content: center;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header img {
+  width: 100%;
+}
+
+.header .text {
+  grid-column: 2/-1;
+  display: flex;
+  flex-direction: column;
+}
+
+.text .title {
+  font-size: 5rem;
+  font-weight: 600;
+  text-align: right;
+  color: #0E6BA8;
+}
+
+.text .desc {
+  font-size: 1.4rem;
+  color: #909090;
+  text-align: right;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+
+.content p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.content hr {
+  border: none;
+  border-top: 1.5px solid #f0f0f0;
+  width: 100%;
+}
+
+.content label {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #606060;
+}
+
+.content button {
+  padding: 1rem 2rem;
+  width: fit-content;
+  border: none;
+  background-color: #0E6BA8;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+label input[type=text] {
+  height: 1.8rem;
+  padding-left: 0.5rem;
+}
+
+label textarea {
+  padding-left: 0.5rem;
+  min-height: 4rem;
+}
+
+label input[type=text], label textarea {
+  width: 50%;
+  resize: vertical;
+  border: 1px solid #55C3F1;
+  border-radius: 6px;
+  outline: none;
+}
+
+label input[type=text]:focus, label textarea:focus {
+  box-shadow: 0 0 0 6px #55C3F140;
+}
+
 section {
   background: #FFF;
   box-shadow: 0 0 8px 0 #00000036;
-  min-width: 60vw;
-  height: 100vh;
-  padding: 2rem;
+  box-sizing: border-box;
+  width: 60vw;
+  min-height: 100vh;
+  padding: 2rem 3rem;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 }
 
 @media (orientation: portrait) {
   section {
     min-width: 100vw;
+    grid-template-rows: auto auto 1fr;
+    padding: 1rem;
+  }
+
+  section .header {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .header img {
+    box-sizing: border-box;
+    padding: 0 4rem;
+  }
+
+  .header .text {
+    grid-column: 1/-1;
+  }
+
+  .text .title {
+    grid-column: 1/-1;
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  .text .desc {
+    grid-column: 1/-1;
+    text-align: center;
+  }
+
+  .content {
+    padding-top: 1rem;
+  }
+
+  label input[type=text], label textarea {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
